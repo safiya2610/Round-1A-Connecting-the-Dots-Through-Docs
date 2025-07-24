@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Outline Extractor</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    body {
+    
+      background-image: url("https://c4.wallpaperflare.com/wallpaper/142/926/331/nature-sea-simple-background-wallpaper-preview.jpg");
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      background-color: #f0f0f0;
+      z-index: -1;
+    }
+   .container-box {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+    .header-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: block;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      border: 2px solid #fff;
+    }
+
+.button{
+  position: relative;
+  padding: 15px 30px;
+  border-radius: 50px;
+  color: #03254c;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(200, 200, 200, 0.15), rgba(120, 120, 120, 0.05));
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: 0 4px 15px rgba(150, 150, 150, 0.6), 0 0 30px rgba(100, 100, 100, 0.2);
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 0;
+  justify-content:space-around;
+  
+}
+
+.button:hover {
+  background: rgba(80, 80, 80, 0.3);
+  box-shadow: 0 0 20px rgba(180, 180, 180, 0.8), 0 0 40px rgba(120, 120, 120, 0.3);
+  transform: scale(1.05);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  z-index: 1;
+}
+
+.button:hover::before{
+  left: 125%;
+}
+
+    input[type="file"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    * {
+  font-family: sans-serif; 
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 700px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #03254c;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #03254c;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #03254c;
+}
+
+  </style>
+</head>
+
+<body> 
+  
+  <div class="container mt-5" style="max-width: 700px;"> 
+    <div class="container-box">
+      <h1 style="color: #03254c;font-size:45px;"> Upload PDF to Extract Outline</h1>
+
+<form method="POST" action="/upload" enctype="multipart/form-data" class="my-4">
+  <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
+    <div style="position: relative;">
+      <label for="pdf_file" class="button">Choose File</label>
+      <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" required>
+    </div>
+    <button type="submit" class="button">Extract</button>
+  </div>
+</form>
+
+
+      {% if file_pairs %}
+      <h2 class="mt-4" style="color:#03254c;justify-content: center;display: flex;">Uploaded Files</h2>
+      <h2 class="mt-4" style="color:#03254c;justify-content: center;display: flex;">Click link to Download File</h2>
+      <table class="content-table" >
+        <thead class="table-light">
+          <tr>
+            <th style="color: #fff;">PDF File</th>
+            <th style="color: #fff;">JSON Output</th>
+            <th style="color: #fff;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pdf, json in file_pairs %}
+          <tr>
+            <td >
+              <a href="{{ url_for('download', folder='input', filename=pdf) }}" style="color: #FFFEE5;" target="_blank">{{ pdf }}</a>
+            </td>
+            <td>
+              <a href="{{ url_for('download', folder='output', filename=json) }}" style="color: #fff;" target="_blank">{{ json }}</a>
+            </td>
+            <td>
+              <form method="POST" action="/delete" class="d-inline">
+                <input type="hidden" name="input_file" value="{{ pdf }}">
+                <input type="hidden" name="output_file" value="{{ json }}">
+                
+                <button type="submit" class="button">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+  </div> 
+</body>
+</html>
