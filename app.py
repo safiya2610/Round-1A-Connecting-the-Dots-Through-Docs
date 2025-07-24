@@ -60,4 +60,4 @@ def download(folder, filename):
     return send_from_directory(folder_path, filename, as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug=True)  # 👈 Add this for auto-reload and better error messages
+    app.run(debug=True, host="0.0.0.0")
