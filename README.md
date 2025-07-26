@@ -33,9 +33,19 @@ A simple web app to upload `.pdf` or `.txt` files, extract structured outline in
 ```bash
 git clone https://github.com/your-username/pdf-json-outliner.git
 cd pdf-json-outliner
+```
+### 2. Create a virtual environment and activate it
+```bash
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
+```
+### 3. Install dependencies
+```bash
 pip install -r requirements.txt
 python app.py
-
+```
+### 4. Run the Flask app
+```bash
+python app.py
+```
 
