@@ -25,5 +25,17 @@ A simple web app to upload `.pdf` or `.txt` files, extract structured outline in
 
 ---
 
-## Project Structure
+
+---
+
+##  Setup Locally (Without Docker)
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/pdf-json-outliner.git
+cd pdf-json-outliner
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+
 
