@@ -1,4 +1,4 @@
-# 📄 PDF/Text to JSON Outline Converter (Flask App)
+# 📄 PDF/Text to JSON Outline Converter 
 
 A simple web app to upload `.pdf` or `.txt` files, extract structured outline information (like Title, H1, H2, H3 with page numbers), and generate corresponding `.json` outputs. The app displays all uploaded files and outputs in a clean, interactive table with options to **view** or **delete** files.
 
