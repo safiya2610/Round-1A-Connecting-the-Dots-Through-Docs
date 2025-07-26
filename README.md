@@ -48,4 +48,9 @@ python app.py
 ```bash
 python app.py
 ```
+## Run using Docker 
+```bash
+docker build -t pdf-outliner .
+docker run -p 5000:5000 pdf-outliner
+```
 
