@@ -50,7 +50,7 @@ docker build -t pdf-outliner .
 docker run -p 5000:5000 pdf-outliner
 ```
 ### Outline Highlights
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/38c8ee4d-7765-4ac0-937f-e4e56b223224" />
+<img width="1300" height="1000" alt="image" src="https://github.com/user-attachments/assets/38c8ee4d-7765-4ac0-937f-e4e56b223224" />
 
 
 ![WhatsApp Image 2025-07-24 at 22 31 52_97751146](https://github.com/user-attachments/assets/f64489da-972f-4b17-8339-7e4ceb558fed)
