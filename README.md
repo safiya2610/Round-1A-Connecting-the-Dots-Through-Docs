@@ -54,6 +54,18 @@ docker build -t pdf-outliner .
 docker run -p 5000:5000 pdf-outliner
 ```
 
+## Output Format
+```bash
+{
+"title": "Understanding AI",
+"outline": [
+{ "level": "H1", "text": "Introduction", "page": 1 },
+{ "level": "H2", "text": "What is AI?", "page": 2 },
+{ "level": "H3", "text": "History of AI", "page": 3 }
+]
+}
+```
+
 
 ## Clean and responsive UI
 ![WhatsApp Image 2025-07-24 at 22 31 52_97751146](https://github.com/user-attachments/assets/f64489da-972f-4b17-8339-7e4ceb558fed)
