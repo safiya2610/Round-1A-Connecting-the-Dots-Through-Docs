@@ -3,7 +3,9 @@
 A simple web app to upload `.pdf` or `.txt` files, extract structured outline information (like Title, H1, H2, H3 with page numbers), and generate corresponding `.json` outputs. The app displays all uploaded files and outputs in a clean, interactive table with options to **view** or **delete** files.
 
 ---
-
+## Demo Video
+https://drive.google.com/file/d/1AQzx5fIurYA_M9XS0RO1-ciweOzSz94a/view?usp=sharing
+---
 ##  Features
 
 - Upload `.pdf` or `.txt` files
