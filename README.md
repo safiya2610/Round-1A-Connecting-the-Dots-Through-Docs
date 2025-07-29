@@ -54,6 +54,11 @@ docker build -t pdf-outliner .
 docker run -p 5000:5000 pdf-outliner
 ```
 
+## Input Format
+```
+PDF file: <upload a single .pdf file (max 50 pages)>
+```
+
 ## Output Format
 ```bash
 {
