@@ -16,8 +16,11 @@ A simple web app to upload `.pdf` or `.txt` files, extract structured outline in
 
 ---
 
+## Outline Highlights
+<img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/38c8ee4d-7765-4ac0-937f-e4e56b223224" />
 ## Tech Stack
 
+---
 - **Frontend**: HTML5, CSS3 
 - **Backend**: Python 3 + Flask
 - **PDF Parsing**: `PyMuPDF (fitz)`
@@ -49,8 +52,7 @@ python app.py
 docker build -t pdf-outliner .
 docker run -p 5000:5000 pdf-outliner
 ```
-## Outline Highlights
-<img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/38c8ee4d-7765-4ac0-937f-e4e56b223224" />
+
 
 ## Clean and responsive UI
 ![WhatsApp Image 2025-07-24 at 22 31 52_97751146](https://github.com/user-attachments/assets/f64489da-972f-4b17-8339-7e4ceb558fed)
