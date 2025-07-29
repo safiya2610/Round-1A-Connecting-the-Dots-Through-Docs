@@ -18,9 +18,10 @@ A simple web app to upload `.pdf` or `.txt` files, extract structured outline in
 
 ## Outline Highlights
 <img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/38c8ee4d-7765-4ac0-937f-e4e56b223224" />
-## Tech Stack
+
 
 ---
+## Tech Stack
 - **Frontend**: HTML5, CSS3 
 - **Backend**: Python 3 + Flask
 - **PDF Parsing**: `PyMuPDF (fitz)`
